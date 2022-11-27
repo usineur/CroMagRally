@@ -14,6 +14,10 @@
 #include "network.h"
 #include <SDL.h>
 
+#ifdef __SWITCH__
+#include "nx.h"
+#endif
+
 
 /****************************/
 /*    PROTOTYPES            */
@@ -155,7 +159,11 @@ void InitDefaultPrefs(void)
 
 	SetDefaultPlayerSaveData();
 
+#ifdef __SWITCH__
+	gGamePrefs.language				= GetSwitchBestLanguage();
+#else
 	gGamePrefs.language				= GetBestLanguageIDFromSystemLocale();
+#endif
 	gGamePrefs.difficulty			= DIFFICULTY_MEDIUM;
 	gGamePrefs.splitScreenMode2P	= SPLITSCREEN_MODE_2P_TALL;
 	gGamePrefs.splitScreenMode3P	= SPLITSCREEN_MODE_3P_TALL;

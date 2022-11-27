@@ -300,7 +300,9 @@ void SetFullscreenMode(bool enforceDisplayPref)
 #endif
 
 		// Enter fullscreen mode
+#ifndef __SWITCH__
 		SDL_SetWindowFullscreen(gSDLWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
+#endif
 	}
 
 	// Ensure the clipping pane gets resized properly after switching in or out of fullscreen mode

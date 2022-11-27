@@ -24,13 +24,21 @@ const InputBinding kDefaultInputBindings[NUM_CONTROL_NEEDS] =
 	[kNeed_ThrowForward] =
 	{
 		.userKey = { SC_THROWF1, SC_THROWF2 },
+#ifdef __SWITCH__
+		.userPad = { CB(X), CAMINUS(RIGHTY) },
+#else
 		.userPad = { CB(Y), CAMINUS(RIGHTY) },
+#endif
 	},
 
 	[kNeed_ThrowBackward] =
 	{
 		.userKey = { SC_THROWB1, SC_THROWB2 },
+#ifdef __SWITCH__
+		.userPad = { CB(Y), CAPLUS(RIGHTY) },
+#else
 		.userPad = { CB(X), CAPLUS(RIGHTY) },
+#endif
 	},
 
 	[kNeed_Brakes] =
@@ -54,14 +62,22 @@ const InputBinding kDefaultInputBindings[NUM_CONTROL_NEEDS] =
 	[kNeed_Forward] =
 	{
 		.userKey = { SDL_SCANCODE_UP, SDL_SCANCODE_W },
+#ifdef __SWITCH__
+		.userPad = { CB(B) },
+#else
 		.userPad = { CB(A) },
+#endif
 		.hardPad = { CB(DPAD_UP) },	// hardcoded
 	},
 
 	[kNeed_Backward] =
 	{
 		.userKey = { SDL_SCANCODE_DOWN, SDL_SCANCODE_S },
+#ifdef __SWITCH__
+		.userPad = { CB(A) },
+#else
 		.userPad = { CB(B) },
+#endif
 		.hardPad = { CB(DPAD_DOWN) },	// hardcoded
 	},
 
@@ -117,13 +133,21 @@ const InputBinding kDefaultInputBindings[NUM_CONTROL_NEEDS] =
 	[kNeed_UIConfirm] =
 	{
 		.key = { SDL_SCANCODE_RETURN, SDL_SCANCODE_SPACE, SDL_SCANCODE_KP_ENTER },
+#ifdef __SWITCH__
+		.pad = { CB(B) },
+#else
 		.pad = { CB(A) },
+#endif
 	},
 
 	[kNeed_UIDelete] =
 	{
 		.key = { SDL_SCANCODE_DELETE, SDL_SCANCODE_BACKSPACE },
+#ifdef __SWITCH__
+		.pad = { CB(Y) },
+#else
 		.pad = { CB(X) },
+#endif
 	},
 
 	[kNeed_UIStart] =
@@ -134,7 +158,11 @@ const InputBinding kDefaultInputBindings[NUM_CONTROL_NEEDS] =
 	[kNeed_UIBack] =
 	{
 		.key = { SDL_SCANCODE_ESCAPE, SDL_SCANCODE_BACKSPACE },
+#ifdef __SWITCH__
+		.pad = {CB(A), CB(BACK) },
+#else
 		.pad = {CB(B), CB(BACK) },
+#endif
 		.mouseButton = SDL_BUTTON_X1
 	},
 
